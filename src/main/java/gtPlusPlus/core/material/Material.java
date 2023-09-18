@@ -1137,6 +1137,10 @@ public class Material {
         return getComponentByPrefix(OrePrefixes.cableGt16, stacksize);
     }
 
+    public final ItemStack getPipeMedium(final int stacksize) {
+        return getComponentByPrefix(OrePrefixes.pipeMedium, stacksize);
+    }
+
     /**
      * Ore Components
      * 

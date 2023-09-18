@@ -221,6 +221,39 @@ public class GregtechConduits {
         generateGTFluidPipes(Materials.Clay, BasePipeID + 65, 100, 500, false);
         generateGTFluidPipes(Materials.Lead, BasePipeID + 70, 350, 1200, true);
 
+        // For pipe casing blocks
+        generateNonGTFluidPipes(
+                GT_Materials.CinobiteA243,
+                ALLOY.CINOBITE,
+                BasePipeID + 75,
+                4000,
+                ALLOY.CINOBITE.getMeltingPointK(),
+                true);
+
+        generateNonGTFluidPipes(
+                GT_Materials.Titansteel,
+                ALLOY.TITANSTEEL,
+                BasePipeID + 80,
+                6000,
+                ALLOY.TITANSTEEL.getMeltingPointK(),
+                true);
+
+        generateNonGTFluidPipes(
+                GT_Materials.AbyssalAlloy,
+                ALLOY.ABYSSAL,
+                BasePipeID + 85,
+                8000,
+                ALLOY.ABYSSAL.getMeltingPointK(),
+                true);
+
+        generateNonGTFluidPipes(
+                GT_Materials.Quantum,
+                ALLOY.QUANTUM,
+                BasePipeID + 90,
+                10000,
+                ALLOY.QUANTUM.getMeltingPointK(),
+                true);
+
         generateNonGTFluidPipes(
                 GT_Materials.TriniumNaquadahCarbonite,
                 ALLOY.TRINIUM_NAQUADAH_CARBON,

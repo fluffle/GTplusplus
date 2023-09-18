@@ -32,6 +32,8 @@ import gregtech.api.util.GT_Config;
 import gregtech.api.util.GT_Log;
 import gregtech.api.util.GT_Utility;
 import gtPlusPlus.core.lib.CORE;
+import gtPlusPlus.core.material.ALLOY;
+import gtPlusPlus.core.material.Material;
 import gtPlusPlus.xmod.gregtech.api.interfaces.internal.Interface_OreRecipeRegistrator;
 import gtPlusPlus.xmod.gregtech.api.objects.GregtechItemData;
 import gtPlusPlus.xmod.gregtech.api.objects.GregtechMaterialStack;
@@ -420,9 +422,6 @@ public enum GregtechOrePrefixes {
         Neutronic(-1, TextureSet.SET_NONE, 1.0F, 0, 0, 0, 255, 255, 255, 0, "LuV Tier", 0, 0, -1, 0, false, false, 1, 1,
                 1, Dyes.dyeLightGray,
                 Arrays.asList(getTcAspectStack(TC_Aspects.ELECTRUM, 6), getTcAspectStack(TC_Aspects.MACHINA, 6))),
-        Quantum(-1, TextureSet.SET_NONE, 1.0F, 0, 0, 0, 255, 255, 255, 0, "ZPM Tier", 0, 0, -1, 0, false, false, 1, 1,
-                1, Dyes.dyeLightGray,
-                Arrays.asList(getTcAspectStack(TC_Aspects.ELECTRUM, 8), getTcAspectStack(TC_Aspects.MACHINA, 8))),
 
         Superconductor(-1, TextureSet.SET_NONE, 1.0F, 0, 0, 0, 190, 240, 190, 0, "Superconductor", 0, 0, -1, 0, false,
                 false, 1, 1, 1, Dyes.dyeGreen, Arrays.asList(getTcAspectStack(TC_Aspects.ELECTRUM, 8))),
@@ -537,6 +536,20 @@ public enum GregtechOrePrefixes {
                         new MaterialStack(Materials.Tantalum, 9),
                         new MaterialStack(Materials.Titanium, 1)),
                 Arrays.asList(getTcAspectStack(TC_Aspects.METALLUM, 8), getTcAspectStack(TC_Aspects.STRONTIO, 3))),
+
+        CinobiteA243(49, ALLOY.CINOBITE, Arrays.asList(getTcAspectStack(TC_Aspects.METALLUM, 8))),
+
+        Titansteel(50, ALLOY.TITANSTEEL,
+                Arrays.asList(
+                        getTcAspectStack(TC_Aspects.METALLUM, 8),
+                        getTcAspectStack(TC_Aspects.IGNIS, 2),
+                        getTcAspectStack(TC_Aspects.TERRA, 2),
+                        getTcAspectStack(TC_Aspects.PERDITIO, 2))),
+
+        AbyssalAlloy(51, ALLOY.ABYSSAL, Arrays.asList(getTcAspectStack(TC_Aspects.METALLUM, 8))),
+
+        Quantum(52, ALLOY.QUANTUM,
+                Arrays.asList(getTcAspectStack(TC_Aspects.ELECTRUM, 8), getTcAspectStack(TC_Aspects.MACHINA, 8))),
 
         // Radioactive Materials
         HydrofluoricAcid(-1, TextureSet.SET_FLUID, 1.0F, 0, 1, 2 | 16 | 32, 200, 200, 200, 0, "Hydrofluoric Acid", 0, 0,
@@ -747,6 +760,32 @@ public enum GregtechOrePrefixes {
             if ((this.mTypes & 2) != 0) {
                 this.add(SubTag.SMELTING_TO_FLUID);
             }
+        }
+
+        private GT_Materials(final int aMetaItemSubID, final Material mat, final List<TC_AspectStack> aAspects) {
+            this(
+                    aMetaItemSubID,
+                    mat.getTextureSet(),
+                    (float) mat.vHarvestLevel, // Tool Speed, eh.
+                    (int) mat.vDurability,
+                    mat.vToolQuality,
+                    1 | 2 | 16 | 32 | 64 | 128, // Types?!
+                    mat.getRGBA()[0],
+                    mat.getRGBA()[1],
+                    mat.getRGBA()[2],
+                    mat.getRGBA()[3],
+                    mat.getLocalizedName(),
+                    0, // Fuel Type
+                    0, // Fuel Power
+                    mat.getMeltingPointC(),
+                    mat.getMeltingPointK(),
+                    mat.requiresBlastFurnace(),
+                    mat.getRGBA()[3] > 0, // Transparent?
+                    1, // Ore value
+                    1, // Density multiplier
+                    1, // Density divider
+                    null, // Colour
+                    aAspects);
         }
 
         private GT_Materials(final int aMetaItemSubID, final TextureSet aIconSet, final float aToolSpeed,

@@ -596,6 +596,11 @@ public enum GregtechItemList implements GregtechItemContainer {
     Modulator_III,
     Modulator_IV,
 
+    Casing_CinobitePipe,
+    Casing_TitansteelPipe,
+    Casing_AbyssalPipe,
+    Casing_QuantumPipe,
+
     // ----------------------------------------------------------------------------
 
     /**

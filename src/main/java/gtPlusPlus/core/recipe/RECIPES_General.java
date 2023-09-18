@@ -393,7 +393,7 @@ public class RECIPES_General {
 
         Material[] gtpp = new Material[] { ALLOY.STABALLOY, ALLOY.TANTALLOY_60, ALLOY.TANTALLOY_61, ALLOY.POTIN,
                 ALLOY.MARAGING300, ALLOY.MARAGING350, ALLOY.INCONEL_690, ALLOY.INCONEL_792, ALLOY.HASTELLOY_X,
-                ALLOY.TRINIUM_NAQUADAH_CARBON };
+                ALLOY.TRINIUM_NAQUADAH_CARBON, ALLOY.CINOBITE, ALLOY.TITANSTEEL, ALLOY.ABYSSAL, ALLOY.QUANTUM };
 
         for (Material mat : gtpp) {
             // generatePipeRecipes multiplies the voltage multiplier by 8 because ??! reasons.
@@ -412,6 +412,54 @@ public class RECIPES_General {
             int tVoltageMultiplier = (e.mBlastFurnaceTemp >= 2800) ? 64 : 16;
             generatePipeRecipes(e.mDefaultLocalName, e.getMass(), tVoltageMultiplier);
         }
+
+        RecipeUtils.addShapedGregtechRecipe(
+                ALLOY.CINOBITE.getPlate(1),
+                ALLOY.CINOBITE.getPipeMedium(1),
+                ALLOY.CINOBITE.getPlate(1),
+                ALLOY.CINOBITE.getPipeMedium(1),
+                ALLOY.CINOBITE.getFrameBox(1),
+                ALLOY.CINOBITE.getPipeMedium(1),
+                ALLOY.CINOBITE.getPlate(1),
+                ALLOY.CINOBITE.getPipeMedium(1),
+                ALLOY.CINOBITE.getPlate(1),
+                GregtechItemList.Casing_CinobitePipe.get(1L));
+
+        RecipeUtils.addShapedGregtechRecipe(
+                ALLOY.TITANSTEEL.getPlate(1),
+                ALLOY.TITANSTEEL.getPipeMedium(1),
+                ALLOY.TITANSTEEL.getPlate(1),
+                ALLOY.TITANSTEEL.getPipeMedium(1),
+                ALLOY.TITANSTEEL.getFrameBox(1),
+                ALLOY.TITANSTEEL.getPipeMedium(1),
+                ALLOY.TITANSTEEL.getPlate(1),
+                ALLOY.TITANSTEEL.getPipeMedium(1),
+                ALLOY.TITANSTEEL.getPlate(1),
+                GregtechItemList.Casing_TitansteelPipe.get(1L));
+
+        RecipeUtils.addShapedGregtechRecipe(
+                ALLOY.ABYSSAL.getPlate(1),
+                ALLOY.ABYSSAL.getPipeMedium(1),
+                ALLOY.ABYSSAL.getPlate(1),
+                ALLOY.ABYSSAL.getPipeMedium(1),
+                ALLOY.ABYSSAL.getFrameBox(1),
+                ALLOY.ABYSSAL.getPipeMedium(1),
+                ALLOY.ABYSSAL.getPlate(1),
+                ALLOY.ABYSSAL.getPipeMedium(1),
+                ALLOY.ABYSSAL.getPlate(1),
+                GregtechItemList.Casing_AbyssalPipe.get(1L));
+
+        RecipeUtils.addShapedGregtechRecipe(
+                ALLOY.QUANTUM.getPlate(1),
+                ALLOY.QUANTUM.getPipeMedium(1),
+                ALLOY.QUANTUM.getPlate(1),
+                ALLOY.QUANTUM.getPipeMedium(1),
+                ALLOY.QUANTUM.getFrameBox(1),
+                ALLOY.QUANTUM.getPipeMedium(1),
+                ALLOY.QUANTUM.getPlate(1),
+                ALLOY.QUANTUM.getPipeMedium(1),
+                ALLOY.QUANTUM.getPlate(1),
+                GregtechItemList.Casing_QuantumPipe.get(1L));
 
         RecipeUtils.addShapedGregtechRecipe(
                 CI.component_Plate[6],
